@@ -10,6 +10,10 @@ on:
 jobs:
   lint-and-test:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: ci-${{ github.ref }}
+      cancel-in-progress: true
 
     steps:
       - name: Checkout code
@@ -27,4 +31,4 @@ jobs:
         run: npm run lint
 
       - name: Run tests
-        run: npm test
+        run: npm tests
