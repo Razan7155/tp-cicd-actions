@@ -22,7 +22,8 @@ jobs:
     #  MATRICE 
     strategy:
       matrix:
-        node-version: [18, 20]
+        node-version: [18]
+        
 
     steps:
       - name: Checkout code
